@@ -1,0 +1,66 @@
+@startuml
+
+class Cliente {
+    - id: int
+    - tipodocumento: String
+    - documento: int
+    - nombre: String
+    - email: String
+    + modificarCliente()
+    + eliminarCliente()
+    + consultarCliente()
+}
+
+class FacturaCliente {
+    - id: int
+    - numeroFactura: int
+    - fecha: Date
+    + modificarFactura()
+    + eliminarFactura()
+    + consultarFactura()
+}
+
+class DetalleFactura {
+    - id: int 
+    - cantidad: int 
+    - valorBruto: float  
+    - valorNeto: float
+    - valorDescuento: float 
+    - valorTotal: float 
+    + modificarDetalleFactura()
+    + eliminarDetalleFactura()
+    + consultarDetalleFactura()
+    
+}
+
+class Producto{
+    - id: int
+    - nombre: String 
+    - descripción: String
+    - categoria: String
+    - valor: float
+    + modificarProducto()
+    + eliminarProducto()
+    + consultarProducto()
+
+}
+
+class Inventario {
+    - id: int 
+    - stock: String
+    - fechaIngreso: Date 
+    - valorDescuento float
+    - porcentajeIVA: float
+    - fechaSalida: Date
+    + modificarInventario()
+    + eliminarInventario()
+    + consultarInventario()
+    
+}
+
+Cliente --o FacturaCliente
+FacturaCliente --o  DetalleFactura
+FacturaCliente --o Producto
+Producto --o Inventario
+
+@enduml
